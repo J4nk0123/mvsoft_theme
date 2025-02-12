@@ -1,0 +1,22 @@
+{% macro render_menu(items) %}
+  {% if items %}
+    {% for item in items %}
+      {% set has_children = item.below is not empty %}
+      <li class="{{ has_children ? 'dropdown' }}" {% if has_children %}data-title="Submenu"{% endif %}>
+        <a href="{{ item.url }}" class="{% if item.in_active_trail %} active {% endif %}">
+          <span>{{ item.title }}</span>
+          {% if has_children %}
+            <i class="bi bi-chevron-down"></i>
+          {% endif %}
+        </a>
+        {% if has_children %}
+          <ul>
+            {{ _self.render_menu(item.below) }}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
+{{ _self.render_menu(items) }}

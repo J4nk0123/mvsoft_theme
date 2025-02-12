@@ -1,0 +1,4 @@
+{% for item in items %}
+  {% set icon = item.original_link.options.fa_icon %}
+    <a href="{{ item.url }}"><i class="{{ icon }}"></i></a>
+{% endfor %}
