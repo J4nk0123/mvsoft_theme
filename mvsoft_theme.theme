@@ -1,0 +1,49 @@
+<?php
+ function mvsoft_theme_theme_suggestions_alter(array &$suggestions, array $variables) {
+     // Add a suggestion for header if you want to override it.
+     $suggestions[] = 'page__mvsoft';
+     if (isset($variables['element']['#form_id'])) {
+             $form_id = $variables['element']['#form_id'];
+
+             if ($form_id === 'contact_message_contact_us_form') {
+                 $suggestions[] = 'form__contact_us';
+             }
+         }
+ }
+
+  use Drupal\block\Entity\Block;
+
+ function mvsoft_theme_preprocess_views_view(&$variables) {
+   // Get the currently viewed node
+   $node = \Drupal::routeMatch()->getParameter('node');
+
+   if ($node instanceof \Drupal\node\NodeInterface) {
+     $variables['current_node'] = $node;
+   }
+
+   $block = \Drupal\block\Entity\Block::load('mvsoft_theme_exposedformeventsblock_2');
+   if ($block) {
+     $variables['mvsoft_theme_exposedformeventsblock_2'] = \Drupal::entityTypeManager()->getViewBuilder('block')->view($block);
+   }
+ }
+
+  function mvsoft_theme_preprocess_block(array &$variables) {
+    // Get the current node, if there is one
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    // Check if we have a node and pass it to the block template
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $variables['current_node'] = $node;
+  }
+}
+
+  function mvsoft_theme_preprocess_form(array &$variables) {
+    // Get the current node, if there is one
+    $node = \Drupal::routeMatch()->getParameter('node');
+
+    // Check if we have a node and pass it to the block template
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $variables['current_node'] = $node;
+    }
+  }
+ ?>

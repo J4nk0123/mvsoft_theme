@@ -1,0 +1,41 @@
+<section class="section section-grid section-deals">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if view.result %}
+          <div class="section-grid__grid">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="element-item">
+                <div class="section-grid__card">
+                  <div class="section-grid__card-img">
+                    {% if node.field_card_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                    {% elseif node.field_hero_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                    {% elseif node.field_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                    {% endif %}
+                  </div>
+                  <div class="section-grid__card-text">
+                    <h5>{{ node.field_post_category.entity.name.value }}</h5>
+                    <h4>
+                      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                        {{ node.title.value }}
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-info text-center py-4" role="alert">
+            There are currently no posts in this category. Please check back later.
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {{ pager }}
+</section>
