@@ -1,0 +1,37 @@
+<header id="header" class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 header__top-row">
+          {{ page.search }}
+          {{ page.branding }}
+        <ul class="ms-5 ms-lg-0 contextual-region">
+          <li class="navbar-info d-none d-lg-block">
+            {{ page.header_right }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row header__bottom-row">
+      <div class="col p-0 d-flex align-items-center">
+        <nav id="navbar" class="contextual-region navbar" role="navigation" aria-labelledby="{{ heading_id }}">
+          <ul class="d-none d-lg-flex">
+            {{ page.main_menu }}
+            {{ page.social_links_menu }}
+
+            <li class="navbar-info d-lg-none">
+              {{ page.header_right }}
+            </li>
+          </ul>
+        </nav>
+        <div class="navbar-button d-lg-none">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

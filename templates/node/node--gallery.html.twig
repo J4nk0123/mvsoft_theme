@@ -1,0 +1,50 @@
+<div class="text-align-center w-100 google-ads-div" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-2">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-9434394-2'); });
+  </script>
+</div>
+{#TODO:THIS#}
+{#<div class="mobile google-ads-div" style="height:50px;width:320px;" id="div-gpt-ad-1539974380913-0">#}
+{#  <script>#}
+{#    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539974380913-0'); });#}
+{#  </script>#}
+{#</div>#}
+
+<section class="section section-gallery-single-title section-title-description">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-12">
+        <h1>{{ node.title.value }}</h1>
+        <p>{{ node.body.value|striptags }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if node.field_gallery_images is not empty %}
+  <section class="section section-gallery-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              {% for image in node.field_gallery_images %}
+                <div class="swiper-slide">
+                  <a href="{{ file_url(image.entity.uri.value) }}" class="gallery-lightbox">
+                    <img src="{{ file_url(image.entity.uri.value) }}" alt="{{ image.alt }}" />
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-button-prev">
+              <img src="/{{ directory }}/img/ico-gallery-prev.svg" alt="" />
+            </div>
+            <div class="swiper-button-next">
+              <img src="/{{ directory }}/img/ico-gallery-next.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

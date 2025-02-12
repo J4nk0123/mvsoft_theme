@@ -1,0 +1,10 @@
+<li class="navbar-info d-none d-lg-block">
+  <ul>
+    {% for item in items %}
+      {% set icon = item.original_link.options.fa_icon %}
+      <li class="navbar-social-media">
+        <a href="{{ item.url }}"><i class="{{ icon }}"></i></a>
+      </li>
+    {% endfor %}
+  </ul>
+</li>

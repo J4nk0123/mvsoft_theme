@@ -1,0 +1,63 @@
+{% set h1_title_parts = view.storage.get('display')[view.current_display].display_title|split(' ', 3) %}
+<div class="hero__wrapper">
+  <div class="section-hero-title">
+    <h1>
+      {{ h1_title_parts[0] ~ ' ' ~ h1_title_parts[1] }}
+      <span>{{ h1_title_parts[2] }}</span>
+    </h1>
+  </div>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for row in view.result %}
+        {% set node = row._entity %}
+        {% set title_parts = node.title.value|split(' ', 2) %}
+        <div class="swiper-slide" data-title="{{ node.field_city.entity.name.value }}">
+          <div class="section-hero">
+            <div class="section-hero__background">
+              {% if node.field_hero_image.entity.uri %}
+                <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+              {% elseif node.field_image.entity.uri %}
+                <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+              {% endif %}
+            </div>
+            <div class="container">
+              <div class="row" data-swiper-parallax="-1000">
+                <div class="col-12">
+                  <div class="section-hero__title">
+                    <div>{{ h1_title_parts[0] ~ ' ' ~ h1_title_parts[1] }}
+                      <span>{{ h1_title_parts[2] }}</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" data-swiper-parallax="-500">
+                <div class="col-12">
+                  <h2>
+                    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                      {{ title_parts[0] }} <span>{{ title_parts[1] }}</span>
+                    </a>
+                  </h2>
+                  <p>
+                    {% if node.field_description.value is defined and node.field_description.value is not empty%}
+                      {{ node.field_description.value|striptags|truncate(100, true, '...') }}
+                    {% elseif node.body.summary %}
+                      {{ node.body.summary|striptags|truncate(100, true, '...') }}
+                    {% elseif node.body.value %}
+                      {{ node.body.value|striptags|truncate(100, true, '...') }}
+                    {% endif %}
+                  </p>
+                  <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="btn">
+                    <span>Read More</span>
+                  </a>
+                </div>
+                <div class="col-lg-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="container container-pagination">
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>

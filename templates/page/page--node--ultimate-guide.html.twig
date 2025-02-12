@@ -1,0 +1,93 @@
+<div class="body-page">
+  {% include directory ~ '/templates/page/parts/preloader.html.twig' %}
+  {% include header_skin %}
+
+  {% include directory ~ '/templates/page/parts/before-content.html.twig' %}
+
+  {% if node is defined %}
+    <div role="main" class="main main-page">
+      <section class="section section-hero-about section-hero-where">
+        <div class="section-hero-about__background">
+          {% if node.field_hero_image.entity.uri %}
+            <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+          {% elseif node.field_image.entity.uri %}
+            <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+          {% endif %}
+        </div>
+        <div class="container">
+          <div class="row h-100">
+            <div class="col-12 flex-column d-flex justify-content-between">
+              <div class="section-hero__breadcrumbs">
+                {{ drupal_breadcrumb() }}
+              </div>
+
+              <div>
+                <div class="section-title m-0">
+                  <h1 class="p-0" {{ title_attributes.addClass('post-title') }}>{{ node.title.value }}</h1>
+                </div>
+
+                <div class="section-hero__infos">
+                  {% if node.uid.entity.name.value is defined %}
+                    <div class="section-hero__info">
+                      <img src="/{{ directory }}/img/pen.svg" />
+                      {{ node.Owner.field_full_name.value }}
+                    </div>
+                  {% endif %}
+
+                  {% if node.created.value is defined %}
+                    <div class="section-hero__info">
+                      <img src="/{{ directory }}/img/calendar.svg" />
+                      {{ nnode.created.value|date('M d, Y') }}
+                    </div>
+                  {% endif %}
+
+                  {% if node.field_read_time.value is defined %}
+                    {# TODO: check it #}
+                    <div class="section-hero__info">
+                      <img src="/{{ directory }}/img/clock.svg" />
+                      {{ node.field_read_time.value }} minutes
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="section-description">
+                  {% if node.field_description.value is defined and node.field_description.value is not empty %}
+                    <p>{{ node.field_description.value|striptags }}</p>
+                  {% elseif node.body.summary %}
+                    <p>{{ node.body.summary|striptags|truncate(150, true, '...') }}</p>
+                  {% elseif node.body.value %}
+                    <p>{{ node.body.value|striptags|truncate(150, true, '...') }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="article-google-ads text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-2">
+        <script>
+          googletag.cmd.push(function () { googletag.display('div-gpt-ad-9434394-2'); });
+        </script>
+      </div>
+      <div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;" id="div-gpt-ad-1539974380913-0">
+        <script>
+          googletag.cmd.push(function () { googletag.display('div-gpt-ad-1539974380913-0'); });
+        </script>
+      </div>
+
+      <div id="content" class="content content-full">
+        <div class="container">
+          {% include directory ~ '/templates/page/parts/main.html.twig' %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div role="main" class="main main-page">
+      {% include directory ~ '/templates/page/parts/unpublished.html.twig' %}
+    </div>
+  {% endif %}
+
+  {% include directory ~ '/templates/page/parts/after-content.html.twig' %}
+  {% include directory ~ '/templates/page/parts/panel.html.twig' %}
+  {% include directory ~ '/templates/page/footer.html.twig' %}
+</div>

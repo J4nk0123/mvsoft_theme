@@ -1,0 +1,28 @@
+<section class="section section-grid section-gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-grid__grid">
+          {% for row in view.result %}
+            {% set node = row._entity %}
+            {% if node.field_gallery_thumbnail is not empty %}
+              <div class="element-item">
+                <div class="section-grid__card">
+                  <div class="section-grid__card-img">
+                    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                      <img class="img-fluid" src="{{ file_url(node.field_gallery_thumbnail.entity.uri.value) }}" alt="{{ node.field_gallery_thumbnail.alt }}" />
+                    </a>
+                  </div>
+                  <div class="section-grid__card-text">
+                    <p>{{ node.title.value }}</p>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ pager }}
+</section>

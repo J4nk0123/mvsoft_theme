@@ -1,0 +1,25 @@
+<div class="body-page">
+  {% include directory ~ '/templates/page/parts/preloader.html.twig' %}
+  <section class="section-not-found">
+    <div class="section-not-found__bg-img">
+      <img src="/{{ directory }}/img/404-desktop.png" alt="Not authorized" class="d-none d-md-block" />
+      <img src="/{{ directory }}/img/404-mobile.png" alt="Not authorized" class="d-block d-md-none" />
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="section-not-found__card">
+            <span>error</span>
+            <div class="section-not-found__img">
+              <img src="/{{ directory }}/img/404.svg" alt="" />
+            </div>
+
+            <p>try reload this page or go back to homepage</p>
+          </div>
+
+          <a href="{{ path('<front>') }}"><i class="bi bi-arrow-left"></i> homepage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

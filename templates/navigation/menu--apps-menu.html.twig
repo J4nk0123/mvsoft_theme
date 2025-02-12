@@ -1,0 +1,15 @@
+<ul>
+  {% for item in items %}
+    <li class="navbar-store">
+      {% if item.title == 'google-play' %}
+        <a href="{{ item.url }}">
+          <img src="/{{ directory }}/img/google-store.svg" />
+        </a>
+      {% else %}
+        <a href="{{ item.url }}">
+          <img src="/{{ directory }}/img/app-store.svg" />
+        </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

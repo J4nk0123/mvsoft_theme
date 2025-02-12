@@ -1,0 +1,64 @@
+<div class="text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px" id="div-gpt-ad-9434394-1">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-9434394-1'); });
+  </script>
+</div>
+
+<div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;" id="div-gpt-ad-1539974380913-0">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539974380913-0'); });
+  </script>
+</div>
+
+<section class="section section-title-description">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-12">
+        <h2 class="p-0">
+          {{ view.title }}
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-grid section-deals pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if view.result %}
+          <div class="section-grid__grid">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="element-item">
+                <div class="section-grid__card">
+                  <div class="section-grid__card-img">
+                    {% if node.field_card_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                    {% elseif node.field_hero_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                    {% elseif node.field_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                    {% endif %}
+                  </div>
+                  <div class="section-grid__card-text">
+                    <h5>{{ node.field_post_category.entity.name.value }}</h5>
+                    <h4>
+                      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                        {{ node.title.value }}
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-info text-center py-4" role="alert">
+            There are currently no posts in this category. Please check back later.
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

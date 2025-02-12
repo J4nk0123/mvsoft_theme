@@ -1,0 +1,177 @@
+<section class="section section-tourist-guides pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4">
+        <div class="d-none d-lg-block" style="height:600px;width:auto;" id="div-gpt-ad-1539937124704-0">
+          <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539937124704-0'); });
+          </script>
+        </div>
+        <div class="text-align-center d-block d-md-none" style="height:250px;width:auto;" id="div-gpt-ad-1540093140914-0">
+          <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540093140914-0'); });
+          </script>
+        </div>
+      </div>
+
+      <div class="section-tourist-guides-map col-12 col-lg-8 mt-4 mt-lg-0">
+        <div class="section-tourist-guides__img">
+{#          <img class="section-tourist-guides__img-1" src="/{{ directory }}/img/map-1.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-2" src="/{{ directory }}/img/map-2.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-3" src="/{{ directory }}/img/map-3.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-4" src="/{{ directory }}/img/map-4.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-5" src="/{{ directory }}/img/map-5.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-6" src="/{{ directory }}/img/map-6.svg" alt="" />#}
+{#          <img class="section-tourist-guides__img-7" src="/{{ directory }}/img/map-7.svg" alt="" />#}
+          <img class="section-tourist-guides__img-all" src="/{{ directory }}/img/map-all.svg" alt="" />
+
+          <a href="/directory/jakarta" class="section-tourist-guides__map-pin-1">
+            <img src="/{{ directory }}/img/map-pin.svg" alt="" />
+            <span class="city-tooltip">Jakarta</span>
+          </a>
+          <a href="/directory/bandung" class="section-tourist-guides__map-pin-2">
+            <img src="/{{ directory }}/img/map-pin.svg" alt="" />
+            <span class="city-tooltip">Bandung</span>
+          </a>
+          <a href="/directory/yogyakarta" class="section-tourist-guides__map-pin-3">
+            <img src="/{{ directory }}/img/map-pin.svg" alt="" />
+            <span class="city-tooltip">Yogyakarta</span>
+          </a>
+          <a href="/directory/surabaya" class="section-tourist-guides__map-pin-4">
+            <img src="/{{ directory }}/img/map-pin.svg" alt="" />
+            <span class="city-tooltip">Surabaya</span>
+          </a>
+          <a href="/directory/bali" class="section-tourist-guides__map-pin-5">
+            <img src="/{{ directory }}/img/map-pin.svg" alt="" />
+            <span class="city-tooltip">Bali</span>
+          </a>
+
+{#          <span class="section-tourist-guides__map-pin-6">#}
+{#              <img src="/{{ directory }}/img/map-pin.svg" alt="" />#}
+{#          </span>#}
+{#          <span class="section-tourist-guides__map-pin-7">#}
+{#              <img src="/{{ directory }}/img/map-pin.svg" alt="" />#}
+{#          </span>#}
+        </div>
+
+{#        {% for row in view.result %}#}
+{#          {% set node = row._entity %}#}
+{#          {% set island = node.field_island.entity.name.value %}#}
+{#          {% macro render_image(node) %}#}
+{#            {% if node.field_card_image.entity.uri %}#}
+{#              <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />#}
+{#            {% elseif node.field_hero_image.entity.uri %}#}
+{#              <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />#}
+{#            {% elseif node.field_image.entity.uri %}#}
+{#              <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />#}
+{#            {% endif %}#}
+{#          {% endmacro %}#}
+
+{#          {% if island == 'Sumatra' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-1">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Kalimantan' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-2">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Sulawesi' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-3">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Java' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-4">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Bali' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-5">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Maluku' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-6">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% elseif island == 'Papua' %}#}
+{#            <div class="section-tourist-guides__popup section-tourist-guides__popup-7">#}
+{#              <div class="section-tourist-guides__popup-img">#}
+{#                {{ _self.render_image(node) }}#}
+{#              </div>#}
+{#              <div class="section-tourist-guides__popup-text">#}
+{#                <h3>{{ node.title.value|truncate(10, true) }}</h3>#}
+{#                <p>{{ node.body.value|striptags|truncate(150, true) }}</p>#}
+{#                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">Load more</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          {% endif %}#}
+{#        {% endfor %}#}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-tourist-guides a[class^=section-tourist-guides__map-pin] .city-tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4px 8px;
+    position: absolute;
+    bottom: 125%; /* Adjust depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 999;
+  }
+
+  .section-tourist-guides a[class^=section-tourist-guides__map-pin]:hover .city-tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>

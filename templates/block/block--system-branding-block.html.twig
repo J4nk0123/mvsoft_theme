@@ -1,0 +1,12 @@
+{% set attributes = attributes.addClass('site-branding') %}
+{% block content %}
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="logo">
+      {% if setting_logo %}
+        <img class="img-fluid" src="{{ site_logo|replace({'.svg': '.png'}) }}" alt="{{ 'Home'|t }}" />
+      {% else %}
+        <img class="img-fluid" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+      {% endif %}
+    </a>
+  {% endif %}
+{% endblock %}

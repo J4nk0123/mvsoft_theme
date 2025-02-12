@@ -1,0 +1,99 @@
+{% set title_parts = current_node.title.value|split(' ') %}
+
+<section class="section section-hero-about">
+  <div class="section-hero-about__background">
+    {% if current_node.field_hero_image.entity.uri %}
+      <img class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" />
+    {% endif %}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex flex-column align-items-center justify-content-center">
+        <div class="section-title">
+          <h1>{{ title_parts[0] }} <span>{{ title_parts[1] }}</span></h1>
+        </div>
+        <div class="section-description">
+          {% if current_node.field_description.value and current_node.field_description.value is not empty%}
+            <p>{{ current_node.field_description.value|striptags }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;background-color: #fafafa;" id="div-gpt-ad-9434394-1">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-9434394-1'); });
+  </script>
+</div>
+
+<div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;background-color: #fafafa;" id="div-gpt-ad-1539974380913-0">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539974380913-0'); });
+  </script>
+</div>
+
+<section class="section section-our-team">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2 class="title-dots">MEET <span>OUR TEAM</span></h2>
+          <div class="section-our-team__title-dots text-center">
+            <img src="/{{ directory }}/img/Group 1000001231.svg" alt="Title Dots" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-our-team__swiper">
+          <div class="swiper-wrapper">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="swiper-slide">
+                <div class="section-our-team__card">
+                  <div class="section-our-team__card-top">
+                    <div class="section-our-team__card-img">
+                      {% if node.field_member_image.entity.uri.value %}
+                        <img class="img-fluid" src="{{ file_url(node.field_member_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                      {% endif %}
+                    </div>
+                    <div class="section-our-team__card-top__text">
+                      <span>{{ node.field_name.value }}</span>
+                      <span>{{ node.field_surname.value }}</span>
+                      {% if node.field_role.value %}
+                        <span>{{ node.field_role.value }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="section-our-team__card-bottom">
+                    <div class="section-our-team__card-icon">
+                      {% if node.field_icon_image.entity.uri.value %}
+                        <img class="img-fluid" src="{{ file_url(node.field_icon_image.entity.uri.value) }}" alt="Role Icon" />
+                      {% endif %}
+                    </div>
+                    {{ node.body.value|raw }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;width: 100%;background-color: #fafafa;" id="div-gpt-ad-4243196-3">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-4243196-3'); });
+  </script>
+</div>
+<div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;background-color: #fafafa;" id="div-gpt-ad-1540092774276-0">
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1540092774276-0'); });
+  </script>
+</div>

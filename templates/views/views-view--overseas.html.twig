@@ -1,0 +1,44 @@
+<section class="section section-overseas pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-overseas__title-dots">
+          <img src="{{ directory }}/img/Group 1000001231.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-overseas__swiper">
+          <div class="swiper-wrapper">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="swiper-slide">
+                <div class="section-overseas__card">
+                  <div class="section-overseas__card-img">
+                    {% if node.field_card_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                    {% elseif node.field_hero_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                    {% elseif node.field_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                    {% endif %}
+                  </div>
+                  <div class="section-overseas__card-text">
+                    <p>{{ node.field_post_category.entity.name.value }}</p>
+                    <h3>{{ node.title.value }}</h3>
+                    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="section-overseas__read-more">
+                      Read More
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

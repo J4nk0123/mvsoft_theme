@@ -1,0 +1,103 @@
+<section class="section section-events pt-0">
+  <div class="container">
+    {# For mobile view (horizontal swiper) #}
+    <div class="row d-flex d-lg-none">
+      <div class="col-12">
+        <div class="swiper section-events__swiper section-events__horizontal-swiper pb-5">
+          <div class="swiper-wrapper">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="swiper-slide">
+                <div class="section-events__card">
+                  <div class="section-events__card-text">
+                    <div class="section-events__card-date">
+                      {% if node.created.value %}
+                        <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                        <span>{{ node.created.value|date('F d, Y') }}</span>
+                      {% endif %}
+                    </div>
+                    <h3>{{ node.title.value|truncate(20, true, '...') }}</h3>
+                    <p>
+                      {% if node.field_description.value is defined and node.field_description.value is not empty%}
+                        {{ node.field_description.value|striptags|truncate(150, true, '...') }}
+                      {% elseif node.body.summary %}
+                        {{ node.body.summary|striptags|truncate(150, true, '...') }}
+                      {% elseif node.body.value %}
+                        {{ node.body.value|striptags|truncate(150, true, '...') }}
+                      {% endif %}
+                    </p>
+                    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="btn-load-more">Load more<i class="ms-2 bi bi-arrow-right"></i></a>
+                  </div>
+                  <div class="section-events__card-img">
+                    {% if node.field_card_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                    {% elseif node.field_hero_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                    {% elseif node.field_image.entity.uri %}
+                      <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    {# For large screens view (vertical swiper) #}
+    <div class="row d-none d-lg-flex">
+      <div class="col-12">
+        <div class="swiper section-events__swiper section-events__vertical-swiper pe-5">
+          <div class="swiper-wrapper">
+            {% set all_nodes = [] %}
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              {% set all_nodes = all_nodes|merge([node]) %}
+            {% endfor %}
+            {% set chunked_nodes = all_nodes|batch(2) %}
+
+            {% for group in chunked_nodes %}
+              <div class="swiper-slide">
+                {% for node in group %}
+                  <div class="section-events__card">
+                    <div class="section-events__card-text">
+                      <div class="section-events__card-date">
+                        {% if node.created.value %}
+                          <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                          <span>{{ node.created.value|date('F d, Y') }}</span>
+                        {% endif %}
+                      </div>
+                      <h3>{{ node.title.value|truncate(20, true, '...') }}</h3>
+                      <p>
+                        {% if node.field_description.value is defined and node.field_description.value is not empty%}
+                          {{ node.field_description.value|striptags|truncate(100, true, '...') }}
+                        {% elseif node.body.summary %}
+                          {{ node.body.summary|striptags|truncate(100, true, '...') }}
+                        {% elseif node.body.value %}
+                          {{ node.body.value|striptags|truncate(100, true, '...') }}
+                        {% endif %}
+                      </p>
+                      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="btn-load-more">Load more<i class="ms-2 bi bi-arrow-right"></i></a>
+                    </div>
+                    <div class="section-events__card-img">
+                      {% if node.field_card_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                      {% elseif node.field_hero_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                      {% elseif node.field_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

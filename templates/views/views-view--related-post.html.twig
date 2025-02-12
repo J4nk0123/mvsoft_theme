@@ -1,0 +1,50 @@
+<section class="section section-guides">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 ">
+        <div class="section-title">
+          <h2 class="title-dots">More Indonesia Guides</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-guides__swiper">
+          <div class="swiper-wrapper">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="swiper-slide">
+                <div class="section-guides__card">
+                  <div class="section-guides__card-top">
+                    <div class="section-guides__card-img">
+                      {% if node.field_card_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                      {% elseif node.field_hero_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                      {% elseif node.field_image.entity.uri %}
+                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                      {% endif %}
+                    </div>
+                    <div class="section-guides__card-top__text">
+                      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                        {{ node.title.value }}
+                      </a>
+                    </div>
+                  </div>
+                  <div class="section-guides__card-bottom">
+                    <div class="section-guides__card-icon">
+                      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                        <img class="img-fluid" src="/{{ directory }}/img/RTM_arrow-up-right.svg" alt="Read more" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

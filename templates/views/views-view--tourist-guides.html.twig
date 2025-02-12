@@ -1,0 +1,142 @@
+<section class="section section-hero-about section-hero-where">
+  <div class="section-hero-about__background">
+    {% if current_node.field_hero_image.entity.uri %}
+      <img class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" />
+    {% endif %}
+  </div>
+  <div class="container">
+    <div class="row h-100">
+      <div class="col-12 flex-column d-flex justify-content-between">
+        <div class="section-hero__breadcrumbs">{{ drupal_breadcrumb() }}</div>
+
+        <div>
+          <div class="section-title m-0">
+            <h1 class="p-0" style="text-align: start !important;">{{ current_node.title.value }}</h1>
+          </div>
+
+          <div class="section-description">
+            {% if current_node.body.summary %}
+              <p>{{ current_node.body.summary|striptags|truncate(300, true, '...') }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-1">
+  <script>
+    googletag.cmd.push(function () { googletag.display('div-gpt-ad-9434394-1'); });
+  </script>
+</div>
+
+<div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;background-color: #fafafa;" id="div-gpt-ad-1539974380913-0">
+  <script>
+    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1539974380913-0'); });
+  </script>
+</div>
+
+<section class="section section-accommodations">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="section-accommodations__textBox">
+          {% set index = 1 %}
+          {% for row in view.result %}
+            {% set node = row._entity %}
+            <div class="mb-5">
+              <h2><span>{{ index }}.</span> {{ node.title.value }}</h2>
+              <div class="section-accommodations__img-container">
+                <div class="section-accommodations__img">
+                  {% if node.field_card_image.entity.uri.value %}
+                    <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="Role Icon" />
+                  {% endif %}
+                </div>
+                <div class="section-accommodations__infos">
+                </div>
+              </div>
+              {% if node.field_description.value and node.field_description.value is not empty %}
+                <p>{{ node.field_description.value|striptags }}</p>
+              {% endif %}
+              <a class="btn btn-primary" href="{{ node.field_link.value[0].uri }}">Read more</a>
+            </div>
+            {% set index = index + 1 %}
+          {% endfor %}
+        </div>
+
+        <section class="section section-subscribe">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="section-subscribe__container">
+                  <h3>
+                    Subscribe to <span>our newsletter</span>
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  </p>
+                  <form class="validate section-subscribe__input-container" action="https://whatsnewindonesia.us1.list-manage.com/subscribe/post?u=47b2fbcfb98c69822636811e8&amp;id=29a338fdc9&amp;f_id=00aaf8e5f0" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank">
+                    <p>
+                      <input class="required email" id="mce-EMAIL" name="EMAIL" required="" type="email" placeholder="Enter your email here">
+                      <button type="submit">Subscribe</button>
+                    </p>
+                    <div style="left:-5000px;position:absolute;" aria-hidden="true">
+                      <input name="b_47b2fbcfb98c69822636811e8_29a338fdc9" tabindex="-1" type="text" value="">
+                    </div>
+                    <div class="clear" id="mce-responses">
+                      <div class="response" style="display:none;" id="mce-error-response">
+                        &nbsp;
+                      </div>
+                      <div class="response" style="display:none;" id="mce-success-response">
+                        &nbsp;
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+          <script type="text/javascript">
+            (function ($) {
+              window.fnames = new Array();
+              window.ftypes = new Array();
+              fnames[0] = 'EMAIL';
+              ftypes[0] = 'email';
+              fnames[1] = 'FNAME';
+              ftypes[1] = 'text';
+              fnames[2] = 'LNAME';
+              ftypes[2] = 'text';
+              fnames[3] = 'ADDRESS';
+              ftypes[3] = 'address';
+              fnames[4] = 'PHONE';
+              ftypes[4] = 'phone';
+              fnames[5] = 'BIRTHDAY';
+              ftypes[5] = 'birthday';
+            }(jQuery));
+            var $mcj = jQuery.noConflict(true);
+          </script>
+        </section>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="section-areas__adsBox">
+          <div class="section-areas__adsBox__guides">
+            {{ drupal_view('article_blocks', 'block_11') }}
+            {{ drupal_block("social_sharing_buttons_block") }}
+          </div>
+          <div class="d-none d-lg-block" style="height:600px;width:auto;" id="div-gpt-ad-1539937124704-0">
+            <script>
+              googletag.cmd.push(function () { googletag.display('div-gpt-ad-1539937124704-0'); });
+            </script>
+          </div>
+          <div class="text-align-center d-block d-md-none" style="height:250px;width:auto;" id="div-gpt-ad-1540093140914-0">
+            <script>
+              googletag.cmd.push(function () { googletag.display('div-gpt-ad-1540093140914-0'); });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
