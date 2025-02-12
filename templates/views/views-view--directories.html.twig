@@ -1,0 +1,61 @@
+<section class="section section-grid section-directory">
+  <div class="container">
+{#    <div class="row">#}
+{#      <div class="col-12">#}
+{#        <div class="filters-container">#}
+{#          <div id="filters" class="section-grid__sorting">#}
+{#            <button class="button is-checked" data-filter="*">All</button>#}
+{#            {% set categories = [] %}#}
+{#            {% for row in rows %}#}
+{#              {% if row['#rows'] %}#}
+{#                {% for rowin in row['#rows'] %}#}
+{#                  {% set node = rowin['#node'] %}#}
+{#                  {% for term in node.field_category %}#}
+{#                    {% set category = term.entity.name.value|lower %}#}
+{#                    {% if category not in categories %}#}
+{#                      {% set categories = categories|merge([category]) %}#}
+{#                      <button class="button" data-filter=".{{ category|replace({' ': '-'}) }}">{{ term.entity.name.value }}</button>#}
+{#                    {% endif %}#}
+{#                  {% endfor %}#}
+{#                {% endfor %}#}
+{#              {% endif %}#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+
+    <div class="row">
+      <div class="col-12">
+        <div class="section-grid__grid">
+          {% for row in rows %}
+            {% if row['#rows'] %}
+              {% for rowin in row['#rows'] %}
+                {% set node = rowin['#node'] %}
+                {% set categories_classes = '' %}
+                {% for term in node.field_category %}
+                  {% set categories_classes = categories_classes ~ ' ' ~ term.entity.name.value|lower|replace({' ': '-'}) %}
+                {% endfor %}
+
+                <div class="element-item exibition {{ categories_classes }}">
+                  <div class="section-grid__card">
+                    <div class="section-grid__card-img">
+                      <img class="img-fluid" src="{{ node.field_image.entity ? file_url(node.field_image.entity.uri.value) : '/path/to/placeholder.jpg' }}" alt="{{ node.title.value }}" />
+                    </div>
+                    <div class="section-grid__card-text">
+                      <h5>{{ node.field_category.0.entity.name.value }}</h5>
+                      <h4>{{ node.title.value }}</h4>
+                      <p>{{ node.field_description.value }}</p>
+                      <p>{{ node.field_date.value|date('d F Y') }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ pager }}
+</section>

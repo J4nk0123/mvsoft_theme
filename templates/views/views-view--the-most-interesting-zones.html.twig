@@ -1,0 +1,45 @@
+<section class="section section-interesting-zones">
+  <div class="container">
+{#    <div class="row">#}
+{#      <div class="col-12">#}
+{#        <div class="section-title">#}
+{#          <h2>The most <span>interesting zones</span></h2>#}
+{#          <div class="section-text">#}
+{#            <p>Explore diverse experiences at every destination and uncover exciting, budget-friendly adventures.</p>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-interesting-zones__swiper">
+          <div class="swiper-wrapper">
+
+            {% for row in rows %}
+              {% for rowin in row['#rows'] %}
+                {% set node = rowin['#node'] %}
+                <div class="swiper-slide">
+                  <div class="section-interesting-zones__card">
+                    <div class="section-interesting-zones__card-img">
+                      {% if node.field_image.entity %}
+                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                      {% else %}
+                        <img class="img-fluid" src="/path/to/placeholder.jpg" alt="Placeholder" />
+                      {% endif %}
+                    </div>
+                    <div class="section-interesting-zones__card-text">
+                      <h5>{{ node.title.value }}</h5>
+                      <p>{{ node.body.value|striptags|truncate(100) }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endfor %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

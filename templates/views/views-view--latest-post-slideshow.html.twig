@@ -1,0 +1,55 @@
+{#TODO: Check it and clean it#}
+<section class="section section-new-this-week">
+  <div class="container">
+{#    <div class="row">#}
+{#      <div class="col-12">#}
+{#        <div class="section-title">#}
+{#          <h2>What's New <span class="underline">This Week</span></h2>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-new-this-week__swiper">
+          <div class="swiper-wrapper">
+
+            {% for row in rows %}
+              {% if row['#rows'] %}
+                {% for rowin in row['#rows'] %}
+                  {% set node = rowin['#node'] %}
+
+                  <div class="swiper-slide">
+                    <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="section-new-this-week__card-link">  {# Added link around the card #}
+                      <div class="section-new-this-week__card">
+                        <div class="section-new-this-week__card-img">
+                          {% if node.field_image.entity %}
+                            <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                          {% else %}
+                            <img class="img-fluid" src="/path/to/placeholder.jpg" alt="Placeholder" />
+                          {% endif %}
+                        </div>
+                        <div class="section-new-this-week__card-text">
+                          <h5>
+                            {% if node.field_city.entity %}
+                              {{ node.field_city.entity.name.value }}
+                            {% else %}
+                              {{ "City Not Available"|t }}
+                            {% endif %}
+                          </h5>
+                          <p>{{ node.title.value }}</p>
+                        </div>
+                      </div>
+                    </a> {# Closing tag for the link #}
+                  </div>
+
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

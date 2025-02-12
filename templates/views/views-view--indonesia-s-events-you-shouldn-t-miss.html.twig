@@ -1,0 +1,142 @@
+{% set title_parts = view.storage.label|split(' ', 3) %} {# Split the title into 3 parts at the spaces #}
+
+<section class="section section-events">
+  <div class="container">
+{#    <div class="row">#}
+{#      <div class="col-12">#}
+{#        <div class="section-title">#}
+{#          <h2 class="text-capitalize">#}
+{#            {{ title_parts[0] ~ ' ' ~ title_parts[1] }}#}
+{#            <br class="d-block d-lg-none" />#}
+{#            <span>{{ title_parts[2] ~ ' ' ~ title_parts[3] }}</span>#}
+{#          </h2>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+
+    {# For mobile view (horizontal swiper) #}
+    <div class="row d-flex d-lg-none">
+      <div class="col-12">
+        <div class="swiper section-events__swiper section-events__horizontal-swiper pb-5">
+          <div class="swiper-wrapper">
+            {% for row in rows %}
+              {% if row['#rows'] %} {# Handle grouped views #}
+                {% for rowin in row['#rows'] %}
+                  {% set node = rowin['#node'] %}
+                  <div class="swiper-slide">
+                    <div class="section-events__card">
+                      <div class="section-events__card-text">
+                        <div class="section-events__card-date">
+                          {% if node.created.value %}
+                            <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                            <span>{{ node.created.value|date('F d, Y') }}</span>
+                          {% endif %}
+                        </div>
+                        <h5>{{ node.title.value|truncate(10) }}</h5>
+                        <p>{% if node.body.value %}{{ node.body.value|striptags|truncate(20) }}{% endif %}</p>
+                        <div class="section-events__card-description">
+                          {% if node.body.value %}
+                            {{ node.body.value|striptags|truncate(200) }}
+                          {% endif %}
+                        </div>
+                        <div class="btn-load-more">Load more <i class="bi bi-arrow-down"></i></div>
+                      </div>
+                      <div class="section-events__card-img">
+                        {% if node.field_image.entity %}
+                          <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %} {# Handle non-grouped views #}
+                {% set node = row['#node'] %}
+                <div class="swiper-slide">
+                  <div class="section-events__card">
+                    <div class="section-events__card-text">
+                      <div class="section-events__card-date">
+                        {% if node.created.value %}
+                          <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                          <span>{{ node.created.value|date('F d, Y') }}</span>
+                        {% endif %}
+                      </div>
+                      <h5>{{ node.title.value|truncate(10) }}</h5>
+                      <p>{% if node.body.value %}{{ node.body.value|striptags|truncate(20) }}{% endif %}</p>
+                      <div class="section-events__card-description">
+                        {% if node.body.value %}
+                          {{ node.body.value|striptags|truncate(200) }}
+                        {% endif %}
+                      </div>
+                      <div class="btn-load-more">Load more <i class="bi bi-arrow-down"></i></div>
+                    </div>
+                    <div class="section-events__card-img">
+                      {% if node.field_image.entity %}
+                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    {# For large screens view (vertical swiper) #}
+    <div class="row d-none d-lg-flex">
+      <div class="col-12">
+        <div class="swiper section-events__swiper section-events__vertical-swiper pe-5">
+          <div class="swiper-wrapper">
+            {% set all_nodes = [] %}
+            {% for row in rows %}
+              {% if row['#rows'] %}
+                {% for rowin in row['#rows'] %}
+                  {% set node = rowin['#node'] %}
+                  {% set all_nodes = all_nodes|merge([node]) %}
+                {% endfor %}
+              {% else %}
+                {% set node = row['#node'] %}
+                {% set all_nodes = all_nodes|merge([node]) %}
+              {% endif %}
+            {% endfor %}
+            {% set chunked_nodes = all_nodes|batch(2) %}
+
+            {% for group in chunked_nodes %}
+              <div class="swiper-slide">
+                {% for node in group %}
+                  <div class="section-events__card">
+                    <div class="section-events__card-text">
+                      <div class="section-events__card-date">
+                        {% if node.created.value %}
+                          <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                          <span>{{ node.created.value|date('F d, Y') }}</span>
+                        {% endif %}
+                      </div>
+                      <h5>{{ node.title.value|truncate(10) }}</h5>
+                      <p>{% if node.body.value %}{{ node.body.value|striptags|truncate(20) }}{% endif %}</p>
+                      <div class="section-events__card-description">
+                        {% if node.body.value %}
+                          <p>{{ node.body.value|striptags|truncate(200) }}</p>
+                        {% endif %}
+                      </div>
+                      <div class="btn-load-more">Load more <i class="bi bi-arrow-down"></i></div>
+                    </div>
+                    <div class="section-events__card-img">
+                      {% if node.field_image.entity %}
+                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

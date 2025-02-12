@@ -1,0 +1,43 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      {% if page.footer_first %}
+        <div class="col-lg-3 col-12">
+          <div class="footer-text">
+            {{ page.footer_first }}
+          </div>
+        </div>
+      {% endif %}
+      {% if page.footer_second %}
+        <div class="col-lg-3 col-12">
+          <div class="footer-link-box">
+            {{ page.footer_second }}
+          </div>
+        </div>
+      {% endif %}
+      {% if page.footer_third %}
+        <div class="col-lg-3 col-12">
+          <div class="footer-link-box">
+            {{ page.footer_third }}
+          </div>
+        </div>
+      {% endif %}
+      {% if page.footer_four %}
+        <div class="col-lg-3 col-12">
+          <div class="footer-icons">
+            {{ page.footer_four }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="footer-credit">
+          {% if page.copyright %}
+            <p>{{ page.copyright }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

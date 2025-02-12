@@ -1,0 +1,46 @@
+{% set title_parts = view.storage.label|split(' ', 3) %} {# Split the title into 3 parts at the spaces #}
+
+<section class="section section-guide-topics">
+  <div class="container">
+{#    <div class="row">#}
+{#      <div class="col-12">#}
+{#        <div class="section-title">#}
+{#          <h2 class="text-capitalize">#}
+{#            {{ title_parts[0] ~ ' ' ~ title_parts[1] }}#}
+{#            <br class="d-block d-lg-none" />#}
+{#            <span>{{ title_parts[2] ~ ' ' ~ title_parts[3] }}</span>#}
+{#          </h2>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-guide-topics__swiper">
+          <div class="swiper-wrapper">
+
+            {% for row in rows %}
+              {% for rowin in row['#rows'] %}
+                {% set node = rowin['#node'] %}
+                <div class="swiper-slide">
+                  <div class="section-guide-topics__col">
+                    <div class="section-guide-topics__col-title">
+                      <h3>{{ node.field_guide_topic_category.value }}</h3>
+                      <h4>{{ node.title.value }}</h4>
+                    </div>
+                    <div class="section-guide-topics__col-img">
+                      {% if node.field_guide_topic_image.entity %}
+                        <img src="{{ file_url(node.field_guide_topic_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endfor %}
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
