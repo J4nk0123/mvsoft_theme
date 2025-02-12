@@ -1,0 +1,27 @@
+<section class="section section-grid section-directory">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-grid__grid">
+          {% for row in view.result %}
+            {% set node = row._entity %}
+
+            <div class="element-item exibition">
+              <div class="section-grid__card">
+                <div class="section-grid__card-img">
+                  <img class="img-fluid" src="{{ node.field_image.entity ? file_url(node.field_image.entity.uri.value) : '/path/to/placeholder.jpg' }}" alt="{{ node.title.value }}" />
+                </div>
+                <div class="section-grid__card-text">
+                  <h5>{{ node.field_post_category.entity.name.value }}</h5>
+                  <h4><a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node.title.value }}</a></h4>
+                  <p>{{ node.created.value|date('d F Y') }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ pager }}
+</section>

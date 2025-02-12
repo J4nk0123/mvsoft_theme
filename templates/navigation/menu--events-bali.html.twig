@@ -1,0 +1,15 @@
+menu--events.html.twig<section class="section section-grid section-deals p-0">
+    <div class="row">
+        <div class="col-12">
+            <div class="filters-container">
+                <div id="filters" class="section-grid__sorting">
+                    {% for item in items %}
+                        <a href="{{ item.url }}" class="button {% if item.in_active_trail %} is-checked {% endif %}">
+                            {{ item.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+<section class="section section-guide-topics">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper section-guide-topics__swiper">
+          <div class="swiper-wrapper">
+            {% for row in view.result %}
+              {% set node = row._entity %}
+              <div class="swiper-slide">
+                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                  <div class="section-guide-topics__col">
+                    <div class="section-guide-topics__col-title">
+                      <h3>{{ node.field_guide_topic_category.value }}</h3>
+                      <h4>{{ node.title.value }}</h4>
+                    </div>
+                    <div class="section-guide-topics__col-img">
+                      {% if node.field_guide_topic_image.entity %}
+                        <img src="{{ file_url(node.field_guide_topic_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                      {% endif %}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
