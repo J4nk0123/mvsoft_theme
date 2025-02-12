@@ -1,0 +1,18 @@
+<div class="section-areas__adsBox">
+  <div class="section-areas__adsBox__guides">
+    <div>
+      <h4><span>Jakarta</span> Essential Guides</h4>
+    </div>
+    <ul>
+      {% for result in content['#view'].result %}
+        {% set node = result._entity %}
+        <li>
+          <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+            {{ node.title.value }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    {{ drupal_block("social_sharing_buttons_block") }}
+  </div>
+</div>

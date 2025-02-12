@@ -1,0 +1,44 @@
+{% if items %}
+  <nav class="pager section-grid-pagination" role="navigation">
+    {% if items.previous %}
+      <button class="pager__item pagination-prev" data-href="{{ items.previous.href }}">
+        <i class="bi bi-chevron-left"></i> <span>{{ 'Back'|t }}</span>
+      </button>
+    {% else %}
+      <button class="pager__item pagination-prev" disabled>
+        <i class="bi bi-chevron-left"></i> <span>{{ 'Back'|t }}</span>
+      </button>
+    {% endif %}
+
+    {% for key, item in items.pages %}
+      {% if item.href %}
+        <button class="pager__item pagination-number{{ current == key ? ' active' : '' }}" data-href="{{ item.href }}">
+          {{ key }}
+        </button>
+      {% else %}
+        <button class="pager__item pagination-number active" disabled>
+          {{ key }}
+        </button>
+      {% endif %}
+    {% endfor %}
+
+    {% if items.next %}
+      <button class="pager__item pagination-next" data-href="{{ items.next.href }}">
+        <span>{{ 'Next'|t }}</span> <i class="bi bi-chevron-right"></i>
+      </button>
+    {% else %}
+      <button class="pager__item pagination-next" disabled>
+        <span>{{ 'Next'|t }}</span> <i class="bi bi-chevron-right"></i>
+      </button>
+    {% endif %}
+  </nav>
+{% endif %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".section-grid-pagination button[data-href]").forEach((button) => {
+      button.addEventListener("click", function () {
+        window.location.href = this.getAttribute("data-href");
+      });
+    });
+  });
+</script>
