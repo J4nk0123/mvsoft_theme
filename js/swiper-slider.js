@@ -25,6 +25,15 @@ jQuery.noConflict(); // Release the `$` alias from other libraries
           return '<div class="' + className + '"><div class="' + className + '-bar"><div class="' + className + '-number">' + title + '</div></div></div>';
         },
       },
+      on: {
+        init: function () {
+          const preloader = document.getElementById('hero-preloader');
+          if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.remove(), 400);
+          }
+        }
+      }
     });
 //
 // // Swiper Guide Topics

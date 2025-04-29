@@ -1,5 +1,8 @@
 {% set h1_title_parts = view.storage.get('display')[view.current_display].display_title|split(' ', 3) %}
 <div class="hero__wrapper">
+  <div id="hero-preloader">
+    <div class="spinner"></div>
+  </div>
   <div class="section-hero-title">
     <h1>
       {{ h1_title_parts[0] ~ ' ' ~ h1_title_parts[1] }}
