@@ -18,11 +18,11 @@
                   <div class="section-guides__card-top">
                     <div class="section-guides__card-img">
                       {% if node.field_card_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" title="{{ node.field_card_image.alt }}"/>
                       {% elseif node.field_hero_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" title="{{ node.field_hero_image.alt }}"/>
                       {% elseif node.field_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" title="{{ node.field_image.alt }}"/>
                       {% endif %}
                     </div>
                     <div class="section-guides__card-top__text">

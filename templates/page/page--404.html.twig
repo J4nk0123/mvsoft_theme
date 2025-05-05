@@ -2,8 +2,8 @@
   {% include directory ~ '/templates/page/parts/preloader.html.twig' %}
   <section class="section-not-found">
     <div class="section-not-found__bg-img">
-      <img src="/{{ directory }}/img/404-desktop.png" alt="Not authorized" class="d-none d-md-block" />
-      <img src="/{{ directory }}/img/404-mobile.png" alt="Not authorized" class="d-block d-md-none" />
+      <img loading="lazy" src="/{{ directory }}/img/404-desktop.png" alt="Not found" title="Not found" class="d-none d-md-block" />
+      <img loading="lazy" src="/{{ directory }}/img/404-mobile.png" alt="Not found" title="Not found" class="d-block d-md-none" />
     </div>
     <div class="container">
       <div class="row justify-content-center">

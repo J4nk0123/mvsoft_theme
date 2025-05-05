@@ -31,16 +31,16 @@
               {% for image in node.field_gallery_images %}
                 <div class="swiper-slide">
                   <a href="{{ file_url(image.entity.uri.value) }}" class="gallery-lightbox">
-                    <img src="{{ file_url(image.entity.uri.value) }}" alt="{{ image.alt }}" />
+                    <img loading="lazy" src="{{ file_url(image.entity.uri.value) }}" alt="{{ image.alt }}" title="{{ image.alt }}"/>
                   </a>
                 </div>
               {% endfor %}
             </div>
             <div class="swiper-button-prev">
-              <img src="/{{ directory }}/img/ico-gallery-prev.svg" alt="" />
+              <img loading="lazy" src="/{{ directory }}/img/ico-gallery-prev.svg" alt="Gallery control" title="Gallery control"/>
             </div>
             <div class="swiper-button-next">
-              <img src="/{{ directory }}/img/ico-gallery-next.svg" alt="" />
+              <img loading="lazy" src="/{{ directory }}/img/ico-gallery-next.svg" alt="Gallery control" title="Gallery control"/>
             </div>
           </div>
         </div>

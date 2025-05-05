@@ -18,9 +18,33 @@
           <div class="section-hero">
             <div class="section-hero__background">
               {% if node.field_hero_image.entity.uri %}
-                <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                {% set large_image = file_url(node.field_hero_image.entity.uri.value) %}
+                {% set medium_image = file_url(node.field_hero_image.entity.uri.value|image_style('medium')) %}
+                {% set small_image = file_url(node.field_hero_image.entity.uri.value|image_style('small')) %}
+
+                <img
+                  loading="{{ loop.index == 1 ? 'eager' : 'lazy' }}"
+                  decoding="async"
+                  class="img-fluid"
+                  src="{{ small_image }}"
+                  srcset="{{ small_image }} 480w, {{ medium_image }} 800w, {{ large_image }} 1200w"
+                  sizes="100vw"
+                  alt="{{ node.field_hero_image.alt }}"
+                />
               {% elseif node.field_image.entity.uri %}
-                <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                {% set large_image = file_url(node.field_image.entity.uri.value) %}
+                {% set medium_image = file_url(node.field_image.entity.uri.value|image_style('medium')) %}
+                {% set small_image = file_url(node.field_image.entity.uri.value|image_style('small')) %}
+
+                <img
+                  loading="{{ loop.index == 1 ? 'eager' : 'lazy' }}"
+                  decoding="async"
+                  class="img-fluid"
+                  src="{{ small_image }}"
+                  srcset="{{ small_image }} 480w, {{ medium_image }} 800w, {{ large_image }} 1200w"
+                  sizes="100vw"
+                  alt="{{ node.field_image.alt }}"
+                />
               {% endif %}
             </div>
             <div class="container">

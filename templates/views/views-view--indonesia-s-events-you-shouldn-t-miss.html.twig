@@ -12,7 +12,7 @@
                   <div class="section-events__card-text">
                     <div class="section-events__card-date">
                       {% if node.created.value %}
-                        <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                        <img loading="lazy" src="{{ directory }}/img/RTM_calendar.svg" alt="Events calendar icon" title="Events calendar icon"/>
                         <span>{{ node.created.value|date('F d, Y') }}</span>
                       {% endif %}
                     </div>
@@ -30,11 +30,11 @@
                   </div>
                   <div class="section-events__card-img">
                     {% if node.field_card_image.entity.uri %}
-                      <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                      <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" title="{{ node.field_card_image.alt }}"/>
                     {% elseif node.field_hero_image.entity.uri %}
-                      <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                      <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" title="{{ node.field_hero_image.alt }}"/>
                     {% elseif node.field_image.entity.uri %}
-                      <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                      <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" title="{{ node.field_image.alt }}"/>
                     {% endif %}
                   </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="section-events__card-text">
                       <div class="section-events__card-date">
                         {% if node.created.value %}
-                          <img src="{{ directory }}/img/RTM_calendar.svg" alt="" />
+                          <img loading="lazy" src="{{ directory }}/img/RTM_calendar.svg" alt="Events calendar icon" title="Events calendar icon"/>
                           <span>{{ node.created.value|date('F d, Y') }}</span>
                         {% endif %}
                       </div>
@@ -83,11 +83,11 @@
                     </div>
                     <div class="section-events__card-img">
                       {% if node.field_card_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="{{ node.field_card_image.alt }}" title="{{ node.field_card_image.alt }}"/>
                       {% elseif node.field_hero_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" title="{{ node.field_card_image.alt }}"/>
                       {% elseif node.field_image.entity.uri %}
-                        <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" title="{{ node.field_card_image.alt }}"/>
                       {% endif %}
                     </div>
                   </div>

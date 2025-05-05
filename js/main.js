@@ -148,9 +148,23 @@ jQuery.noConflict(); // Release the `$` alias from other libraries
       'click',
       '.navbar .dropdown > a',
       function (e) {
-        if (select('#navbar').classList.contains('navbar-mobile')) {
+        const navbar = select('#navbar');
+
+        if (navbar.classList.contains('navbar-mobile')) {
           e.preventDefault();
-          this.nextElementSibling.classList.toggle('dropdown-active');
+
+          const allDropdowns = navbar.querySelectorAll('.dropdown-active');
+          const submenu = this.nextElementSibling;
+
+          // Close all open submenus
+          allDropdowns.forEach(drop => {
+            if (drop !== submenu) {
+              drop.classList.remove('dropdown-active');
+            }
+          });
+
+          // Toggle clicked submenu
+          submenu.classList.toggle('dropdown-active');
         }
       },
       true
@@ -201,6 +215,35 @@ jQuery.noConflict(); // Release the `$` alias from other libraries
         }
       });
     }
+
+    /**
+     * Expand/Collapse text
+     */
+    // const eventButtons = select('.section-events__card .btn-load-more', true);
+    // const overseasButtons = select('.section-overseas__card .section-overseas__read-more', true);
+    //
+    // const toggleTextExpansion = (btnList = [], text = 'Load', direction = 'vertical') => {
+    //   // console.log(btnList);
+    //
+    //   if (btnList?.length === 0) {
+    //     return;
+    //   }
+    //
+    //   btnList.forEach((button) => {
+    //     button.addEventListener('click', () => {
+    //       let startPosition = direction === 'vertical' ? 'down' : 'right';
+    //       const showThisElement = button.previousElementSibling;
+    //       showThisElement.classList.toggle('active');
+    //       // console.log(showThisElement);
+    //
+    //       if (showThisElement?.classList?.contains('active')) {
+    //         button.innerHTML = `${text} less <i class="bi bi-arrow-${startPosition === 'down' ? 'up' : 'left'}"></i>`;
+    //       } else {
+    //         button.innerHTML = `${text} more <i class="bi bi-arrow-${startPosition}"></i>`;
+    //       }
+    //     });
+    //   });
+    // };
 
     /**
      * Slider
@@ -351,6 +394,44 @@ jQuery.noConflict(); // Release the `$` alias from other libraries
         },
       },
     });
+
+// swiper calls
+// toggleTextExpansion(eventButtons);
+// toggleTextExpansion(overseasButtons, "Read", "vertical");
+
+// AI Assistant
+    // const $assistant = $('df-messenger-chat-bubble');
+    // let isFixed = false;
+    // let absoluteTop = $assistant.offset().top;
+
+    // const updateAbsoluteTop = () => {
+    //   if (!isFixed) {
+    //     absoluteTop = $assistant.offset().top;
+    //   }
+    // };
+
+    // const updatePosition = () => {
+    //   const scrollTop = $(window).scrollTop();
+    //   const halfWindow = $(window).height() * 0.5;
+
+    //   updateAbsoluteTop();
+
+    //   if (!isFixed && absoluteTop - scrollTop <= halfWindow) {
+    //     const computedRight = $assistant.css('right');
+    //     $assistant.css({
+    //       position: 'fixed',
+    //       top: halfWindow,
+    //       right: '25px',
+    //       bottom: 'auto',
+    //     });
+    //     isFixed = true;
+    //   } else if (isFixed && absoluteTop - scrollTop > halfWindow) {
+    //     $assistant.attr('style', '');
+    //     isFixed = false;
+    //   }
+    // };
+
+    // $(window).on('scroll resize', updatePosition);
 
     // Tourist Guides Section Toggle
     if ($('.section-tourist-guides__img').length) {

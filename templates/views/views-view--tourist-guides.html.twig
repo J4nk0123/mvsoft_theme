@@ -1,7 +1,7 @@
 <section class="section section-hero-about section-hero-where">
   <div class="section-hero-about__background">
     {% if current_node.field_hero_image.entity.uri %}
-      <img class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" />
+      <img loading="lazy" class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" title="{{ current_node.field_hero_image.alt }}"/>
     {% endif %}
   </div>
   <div class="container">
@@ -49,7 +49,7 @@
               <div class="section-accommodations__img-container">
                 <div class="section-accommodations__img">
                   {% if node.field_card_image.entity.uri.value %}
-                    <img class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="Role Icon" />
+                    <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_card_image.entity.uri.value) }}" alt="Role Icon" title="Role Icon"/>
                   {% endif %}
                 </div>
                 <div class="section-accommodations__infos">

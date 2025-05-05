@@ -15,11 +15,19 @@ body {
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 }
+
+
 body::-webkit-scrollbar {
   display: none;
 }
 body.no-scroll {
   overflow: hidden;
+}
+
+.gav-help-region .drupal-tabs > li {
+  list-style-type: none;
+  margin-right: 0;
+  display: inline;
 }
 
 .row-wrapper.clearfix {
@@ -48,7 +56,7 @@ body.no-scroll {
 
 .post-block .node__content p,
 .post-block .node__content a {
-  font-size: 20px;
+  font-size: 18px;
 }
 @media (max-width: 576px) {
   .post-block .node__content p,
@@ -64,6 +72,7 @@ body.no-scroll {
 .post-block .node__content a {
   color: #ff3639;
 }
+
 
 .post-block .node__content a:hover {
   color: #303030;
@@ -655,6 +664,11 @@ ul {
   font-weight: 400;
   transition: 0.2s;
 }
+@media (max-width: 576px) {
+  .navbar > ul li a {
+    font-size: 18px;
+  }
+}
 .navbar > ul li a::before {
   content: "";
   position: absolute;
@@ -795,7 +809,7 @@ ul {
   padding-left: 10px;
 }
 .navbar.navbar-mobile .dropdown > ul li a {
-  font-size: 12px;
+  font-size: 16px;
 }
 .navbar.navbar-mobile .dropdown > ul.dropdown-active {
   display: block;
@@ -827,6 +841,7 @@ ul {
 /*--------------------------------------------------------------
 # Section Hero
 --------------------------------------------------------------*/
+
 .hero__wrapper {
   position: relative;
 }
@@ -891,17 +906,17 @@ ul {
 .hero__wrapper .section-hero-title h1 span {
   text-transform: uppercase;
   color: #f25055;
-  font-weight: 700;
+  font-weight: 600;
 }
 @media (max-width: 992px) {
   .hero__wrapper .section-hero-title h1 {
     font-size: 64px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
   }
   .hero__wrapper .section-hero-title h1 span {
     font-size: 64px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
   }
 }
@@ -1015,7 +1030,7 @@ ul {
   justify-content: end;
 }
 .hero__wrapper .swiper-container .swiper-wrapper .swiper-slide .section-hero .container .row:last-of-type {
-  margin-bottom: 10dvh;
+  margin-bottom: 13dvh;
 }
 @media (max-width: 768px) {
   .hero__wrapper .swiper-container .swiper-wrapper .swiper-slide .section-hero .container .row>* {
@@ -1112,17 +1127,17 @@ ul {
 .hero__wrapper .swiper-container .swiper-wrapper .swiper-slide .section-hero .section-hero__title div span {
   text-transform: uppercase;
   color: #f25055;
-  font-weight: 700;
+  font-weight: 600;
 }
 @media (max-width: 992px) {
   .hero__wrapper .swiper-container .swiper-wrapper .swiper-slide .section-hero .section-hero__title div {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
   }
   .hero__wrapper .swiper-container .swiper-wrapper .swiper-slide .section-hero .section-hero__title div span {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
   }
 }
@@ -1169,6 +1184,7 @@ ul {
   line-height: normal;
 }
 .hero__wrapper .swiper-container .container-pagination {
+  max-width: 1440px;
   position: absolute;
   left: 0;
   right: 0;
@@ -1403,14 +1419,7 @@ ul {
   align-items: center;
   justify-content: flex-end;
   gap: 30px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.1) 19.5%,
-    rgba(0, 0, 0, 0.2) 36%,
-    rgba(0, 0, 0, 0.35) 57.5%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 19.5%, rgba(0, 0, 0, 0.2) 36%, rgb(0 0 0 / 15%) 57.5%, rgba(0, 0, 0, 0.5) 100%);
 }
 .section-new-this-week .section-new-this-week__swiper .swiper-slide .section-new-this-week__card:hover {
   cursor: pointer;
@@ -1438,12 +1447,12 @@ ul {
 }
 .section-new-this-week .section-new-this-week__swiper .swiper-slide .section-new-this-week__card .section-new-this-week__card-text h3 {
   color: #fff;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 25px;
 }
 .section-new-this-week .section-new-this-week__swiper .swiper-slide .section-new-this-week__card .section-new-this-week__card-text p {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 18px;
   font-weight: 300;
 }
@@ -1627,7 +1636,7 @@ ul {
 .section-guide-topics .section-guide-topics__swiper .swiper-slide .section-guide-topics__card .section-guide-topics__card-text h3 {
   color: #fff;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 25px;
   letter-spacing: 0.15px;
 }
@@ -2069,7 +2078,7 @@ ul {
 .section-overseas .section-overseas__swiper .swiper-slide .section-overseas__card .section-overseas__card-text p {
   color: #f25055;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 @media (max-width: 768px) {
@@ -2080,7 +2089,7 @@ ul {
 .section-overseas .section-overseas__swiper .swiper-slide .section-overseas__card .section-overseas__card-text h3 {
   color: #111;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
   margin-bottom: 20px;
 }
@@ -2265,13 +2274,17 @@ ul {
   }
 }
 @media (max-width: 768px) {
-  .section-newsletter .section-newsletter__content h2 {
+  .section-newsletter .section-newsletter__content h3 {
     padding: 40px 20px;
+    font-size: 28px !important;
   }
 }
-.section-newsletter .section-newsletter__content h2 {
-  margin-bottom: 0px;
-  font-weight: 800;
+.section-newsletter .section-newsletter__content h3 {
+  color: #f25055;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 .section-newsletter .section-newsletter__content p {
@@ -2500,8 +2513,8 @@ ul {
 }
 .section-hero-about.section-hero-where .section-title h1{
   text-align: left;
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   line-height: normal;
   text-transform: uppercase;
 }
@@ -2546,7 +2559,7 @@ ul {
   object-fit: contain;
 }
 .section-hero-about.section-hero-where .section-hero__infos .section-hero__info:last-child {
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-hero-about.section-hero-where .section-description {
   max-width: 915px;
@@ -2561,7 +2574,8 @@ ul {
   }
 }
 .article-google-ads {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 .article-google-ads iframe {
   max-width: 100% !important;
@@ -2631,7 +2645,7 @@ ul {
   z-index: 5;
 }
 .section-our-team .section-our-team__swiper .section-our-team__card .section-our-team__card-top .section-our-team__card-top__text span:first-child {
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-our-team .section-our-team__swiper .section-our-team__card .section-our-team__card-top .section-our-team__card-top__text span:last-child {
   font-size: 16px;
@@ -3158,7 +3172,7 @@ ul {
   background: #f25055;
   color: #fff;
   border: 1px solid #f25055;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-grid-pagination button:disabled {
   pointer-events: none;
@@ -3166,7 +3180,7 @@ ul {
 }
 .section-grid-pagination li.is-active > a {
   background: #f25055;
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   border: 1px solid #f25055;
 }
@@ -3176,7 +3190,7 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   line-height: 1.7;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-grid .filters-container {
   padding: 0 30px;
@@ -3359,7 +3373,7 @@ ul {
 .section-grid .section-grid__grid .element-item .section-grid__card .section-grid__card-text h5 {
   color: #f25055;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
 }
 @media (max-width: 768px) {
@@ -3370,7 +3384,7 @@ ul {
 .section-grid .section-grid__grid .element-item .section-grid__card .section-grid__card-text h4 {
   color: #111;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
 }
 .section-grid .section-grid__grid .element-item .section-grid__card .section-grid__card-text p {
@@ -3474,7 +3488,7 @@ ul {
   font-family: Outfit;
   font-size: 14px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: normal;
   opacity: 0.7;
 }
@@ -3532,7 +3546,7 @@ a.ui-datepicker-next.ui-corner-all {
 .ui-datepicker-title {
   color: #000;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
 }
 table.ui-datepicker-calendar {
   border: none;
@@ -3653,7 +3667,7 @@ table.ui-datepicker-calendar {
   margin-bottom: 40px;
   color: #2f2f2f;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-areas .section-areas__textBox h4 span {
   color: #f25055;
@@ -3678,7 +3692,7 @@ table.ui-datepicker-calendar {
 .section-areas__adsBox .section-areas__adsBox__guides h4 {
   color: #2f2f2f;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 34px;
   margin-bottom: 15px;
 }
@@ -3692,7 +3706,7 @@ table.ui-datepicker-calendar {
 .section-areas__adsBox .section-areas__adsBox__guides ul li {
   color: #878a8e;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 15px 0px;
 }
 .section-areas__adsBox .section-areas__adsBox__guides ul li a:hover {
@@ -3794,7 +3808,7 @@ table.ui-datepicker-calendar {
   color: #fff;
   font-size: 18px;
   line-height: normal;
-  font-weight: 700;
+  font-weight: 600;
   background: rgba(33, 33, 33, 0.38);
   z-index: 5;
 }
@@ -3806,7 +3820,7 @@ table.ui-datepicker-calendar {
 }
 
 .section-guides .section-guides__swiper .section-guides__card .section-guides__card-top .section-guides__card-top__text span:first-child {
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-guides .section-guides__swiper .section-guides__card .section-guides__card-bottom {
   position: relative;
@@ -3868,7 +3882,7 @@ table.ui-datepicker-calendar {
 .section-subscribe .section-subscribe__container h3 {
   color: #000;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 34px;
 }
 .section-subscribe .section-subscribe__container h3 span {
@@ -3934,7 +3948,7 @@ table.ui-datepicker-calendar {
 .section-areas__adsBox__guides .post-block {
   color: #878a8e;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 15px 0px;
   padding: 0;
   border: none;
@@ -3973,7 +3987,7 @@ table.ui-datepicker-calendar {
   margin-bottom: 40px;
   color: #2f2f2f;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-accommodations .section-accommodations__textBox h2 span {
   color: #f25055;
@@ -4027,7 +4041,7 @@ table.ui-datepicker-calendar {
 }
 .section-accommodations .section-accommodations__img-container .section-accommodations__infos span {
   color: #ff3639;
-  font-weight: 700;
+  font-weight: 600;
 }
 .section-accommodations .section-accommodations__review {
   display: flex;
@@ -4050,7 +4064,7 @@ table.ui-datepicker-calendar {
 .section-accommodations .section-accommodations__review .section-accommodations__review-text h6 {
   color: #000;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 26px;
   margin-bottom: 12px;
 }
@@ -4061,7 +4075,7 @@ table.ui-datepicker-calendar {
 }
 .section-accommodations .section-accommodations__review .section-accommodations__review-text span {
   color: #ff3639;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 26px;
 }
 .section-accommodations .section-accommodations__review .section-accommodations__review-text .section-accommodations__review-icons-container {
@@ -4081,7 +4095,7 @@ table.ui-datepicker-calendar {
 }
 .section-accommodations .section-accommodations__review .section-accommodations__review-text .section-accommodations__review-icons-container span {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 26px;
 }
 

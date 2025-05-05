@@ -3,9 +3,9 @@
   {% if site_logo %}
     <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="logo">
       {% if setting_logo %}
-        <img class="img-fluid" src="{{ site_logo|replace({'.svg': '.png'}) }}" alt="{{ 'Home'|t }}" />
+        <img loading="lazy" class="img-fluid" src="{{ site_logo|replace({'.svg': '.png'}) }}" alt="{{ 'Home'|t }}" title="{{ 'Home'|t }}"/>
       {% else %}
-        <img class="img-fluid" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+        <img loading="lazy" class="img-fluid" src="{{ site_logo }}" alt="{{ 'Home'|t }}" title="{{ 'Home'|t }}"/>
       {% endif %}
     </a>
   {% endif %}

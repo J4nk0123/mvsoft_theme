@@ -2,12 +2,12 @@
   {% for item in items %}
     <li class="navbar-store">
       {% if item.title == 'google-play' %}
-        <a href="{{ item.url }}">
-          <img src="/{{ directory }}/img/google-store.svg" />
+       <a href="{{ item.url }}" target="_blank">
+          <img loading="lazy" alt="google-play-store" src="/{{ directory }}/img/google-store.svg" title="google-play-store"/>
         </a>
       {% else %}
-        <a href="{{ item.url }}">
-          <img src="/{{ directory }}/img/app-store.svg" />
+      <a href="{{ item.url }}" target="_blank">
+          <img loading="lazy" alt="ios-app-store" src="/{{ directory }}/img/app-store.svg" title="ios-app-store"/>
         </a>
       {% endif %}
     </li>

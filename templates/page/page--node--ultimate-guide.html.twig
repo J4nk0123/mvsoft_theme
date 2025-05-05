@@ -9,9 +9,9 @@
       <section class="section section-hero-about section-hero-where">
         <div class="section-hero-about__background">
           {% if node.field_hero_image.entity.uri %}
-            <img class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" />
+            <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_hero_image.entity.uri.value) }}" alt="{{ node.field_hero_image.alt }}" title="{{ node.field_hero_image.alt }}"/>
           {% elseif node.field_image.entity.uri %}
-            <img class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" />
+            <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ node.field_image.alt }}" title="{{ node.field_image.alt }}"/>
           {% endif %}
         </div>
         <div class="container">
@@ -29,14 +29,14 @@
                 <div class="section-hero__infos">
                   {% if node.uid.entity.name.value is defined %}
                     <div class="section-hero__info">
-                      <img src="/{{ directory }}/img/pen.svg" />
+                      <img loading="lazy" src="/{{ directory }}/img/pen.svg" alt="Pen" title="Pen"/>
                       {{ node.Owner.field_full_name.value }}
                     </div>
                   {% endif %}
 
                   {% if node.created.value is defined %}
                     <div class="section-hero__info">
-                      <img src="/{{ directory }}/img/calendar.svg" />
+                      <img loading="lazy" src="/{{ directory }}/img/calendar.svg" alt="Calendar" title="Calendar"/>
                       {{ nnode.created.value|date('M d, Y') }}
                     </div>
                   {% endif %}
@@ -44,7 +44,7 @@
                   {% if node.field_read_time.value is defined %}
                     {# TODO: check it #}
                     <div class="section-hero__info">
-                      <img src="/{{ directory }}/img/clock.svg" />
+                      <img loading="lazy" src="/{{ directory }}/img/clock.svg" alt="Clock" title="Clock"/>
                       {{ node.field_read_time.value }} minutes
                     </div>
                   {% endif %}
@@ -64,16 +64,132 @@
           </div>
         </div>
       </section>
-      <div class="article-google-ads text-align-center google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-2">
-        <script>
-          googletag.cmd.push(function () { googletag.display('div-gpt-ad-9434394-2'); });
-        </script>
+
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-1">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-2">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-3">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-4">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-5">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-9434394-6">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-4243196-15">
+      </div>
+      <div class="article-google-ads text-align-center w-100 google-ads-div d-none d-lg-block" style="min-height:auto;min-width:728px;" id="div-gpt-ad-4243196-18">
       </div>
       <div class="mobile google-ads-div d-block d-lg-none" style="height:50px;width:320px;" id="div-gpt-ad-1539974380913-0">
         <script>
           googletag.cmd.push(function () { googletag.display('div-gpt-ad-1539974380913-0'); });
         </script>
       </div>
+
+<script>
+        window.googletag = window.googletag || { cmd: [] };
+
+        const path = window.location.pathname.toLowerCase();
+        const firstSlug = path.split("/")[1];
+
+
+        const lb_wni = document.getElementById('div-gpt-ad-9434394-1');
+        const lb_jakarta = document.getElementById('div-gpt-ad-9434394-2');
+        const lb_bandung = document.getElementById('div-gpt-ad-9434394-4');
+        const lb_bali = document.getElementById('div-gpt-ad-9434394-3');
+        const lb_surabaya = document.getElementById('div-gpt-ad-9434394-5');
+        const lb_yogyakarta = document.getElementById('div-gpt-ad-9434394-6');
+        const lb_other = document.getElementById('div-gpt-ad-4243196-16');
+        const lb_overseas = document.getElementById('div-gpt-ad-4243196-19');
+
+
+        googletag.cmd.push(function() {
+
+            console.log (firstSlug);
+
+          // Cek URL path
+         if (path.includes('/jakarta')) {
+            lb_wni.remove();
+            lb_bandung.remove();
+            lb_bali.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-2');
+          }
+          else if (path.includes('/bandung')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bali.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-4');
+          }
+          else if (path.includes('/bali')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bandung.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-3');
+          }
+          else if (path.includes('/yogyakarta')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bandung.remove();
+            lb_bali.remove();
+            lb_surabaya.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-6');
+          }
+          else if (path.includes('/surabaya')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bandung.remove();
+            lb_bali.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-5');
+          }
+          else if (path.includes('/other')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bandung.remove();
+            lb_bali.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-4243196-16');
+          }
+          else if (path.includes('/overseas')) {
+            lb_wni.remove();
+            lb_jakarta.remove();
+            lb_bali.remove();
+            lb_bandung.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            googletag.display('div-gpt-ad-4243196-19');
+          } else {
+            lb_jakarta.remove();
+            lb_bandung.remove();
+            lb_bali.remove();
+            lb_surabaya.remove();
+            lb_yogyakarta.remove();
+            lb_other.remove();
+            lb_overseas.remove();
+            googletag.display('div-gpt-ad-9434394-1');
+          }
+        });
+      </script>
 
       <div id="content" class="content content-full">
         <div class="container">

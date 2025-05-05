@@ -3,7 +3,7 @@
 <section class="section section-hero-about">
   <div class="section-hero-about__background">
     {% if current_node.field_hero_image.entity.uri %}
-      <img class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" />
+      <img loading="lazy" class="img-fluid" src="{{ file_url(current_node.field_hero_image.entity.uri.value) }}" alt="{{ current_node.field_hero_image.alt }}" title="{{ current_node.field_hero_image.alt }}"/>
     {% endif %}
   </div>
   <div class="container">
@@ -41,7 +41,7 @@
         <div class="section-title">
           <h2 class="title-dots">MEET <span>OUR TEAM</span></h2>
           <div class="section-our-team__title-dots text-center">
-            <img src="/{{ directory }}/img/Group 1000001231.svg" alt="Title Dots" />
+            <img src="/{{ directory }}/img/Group 1000001231.svg" alt="Title Dots" title="Title Dots"  />
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
                   <div class="section-our-team__card-top">
                     <div class="section-our-team__card-img">
                       {% if node.field_member_image.entity.uri.value %}
-                        <img class="img-fluid" src="{{ file_url(node.field_member_image.entity.uri.value) }}" alt="{{ node.title.value }}" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_member_image.entity.uri.value) }}" alt="{{ node.title.value }}" title="{{ node.title.value }}"/>
                       {% endif %}
                     </div>
                     <div class="section-our-team__card-top__text">
@@ -71,7 +71,7 @@
                   <div class="section-our-team__card-bottom">
                     <div class="section-our-team__card-icon">
                       {% if node.field_icon_image.entity.uri.value %}
-                        <img class="img-fluid" src="{{ file_url(node.field_icon_image.entity.uri.value) }}" alt="Role Icon" />
+                        <img loading="lazy" class="img-fluid" src="{{ file_url(node.field_icon_image.entity.uri.value) }}" alt="Role Icon" title="Role Icon"/>
                       {% endif %}
                     </div>
                     {{ node.body.value|raw }}

@@ -13,7 +13,7 @@ global-styling:
     vendor/bootstrap/js/bootstrap.bundle.min.js: {}
     vendor/swiper/swiper-bundle.min.js: {}
     vendor/glightbox/js/glightbox.js: {}
-    js/swiper-slider.js: {}
+    js/swiper-slider.1.2.js: {}
     js/calendar.js: {}
     js/gallery-lightbox.js: {}
     js/main.js: {}
