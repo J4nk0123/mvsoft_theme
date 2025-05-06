@@ -10,13 +10,13 @@ global-styling:
       vendor/swiper/swiper-bundle.min.css: {}
       vendor/glightbox/css/glightbox.css: {}
   js:
-    vendor/bootstrap/js/bootstrap.bundle.min.js: {}
-    vendor/swiper/swiper-bundle.min.js: {}
-    vendor/glightbox/js/glightbox.js: {}
-    js/swiper-slider.1.2.js: {}
-    js/calendar.js: {}
-    js/gallery-lightbox.js: {}
-    js/main.js: {}
+    vendor/bootstrap/js/bootstrap.bundle.min.js: { attributes: { defer: true } }
+    vendor/swiper/swiper-bundle.min.js: { attributes: { defer: true } }
+    vendor/glightbox/js/glightbox.js: { attributes: { defer: true } }
+    js/swiper-slider.1.2.js: { attributes: { defer: true } }
+    js/calendar.js: { attributes: { defer: true } }
+    js/gallery-lightbox.js: { attributes: { defer: true } }
+    js/main.js: { attributes: { defer: true } }
   dependencies:
     - core/jquery.ui.datepicker # This is the key line!
 
